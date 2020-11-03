@@ -383,7 +383,7 @@ struct Image {
   BASALT_HOST_DEVICE inline bool InBounds(float x, float y,
                                           float border) const {
     return border <= x && x < (w - border - 1) && border <= y &&
-           y < (h - border - 1);
+           y < (h - border - 1) && ((x - w/2)*(x - w/2) + (y - h/2)*(h - h/2) < 0.22*h*h);
   }
 
   template <typename Derived>
